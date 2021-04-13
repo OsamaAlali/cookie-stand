@@ -1,7 +1,7 @@
 'use strict'
 let hourSeattle = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
 let totalPranch = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0];//array to store total of all purchpranches
-function Pranche(location, min, max, average) {
+function Branche(location, min, max, average) {
   this.location = location;
   this.min = min;
   this.max = max;
@@ -11,13 +11,13 @@ function Pranche(location, min, max, average) {
     this.total = 0;
   //console.log(this);
 }// End constructor
-Pranche.prototype.gnerateCustomerperhour = function () {
+Branche.prototype.gnerateCustomerperhour = function () {
   for (let i = 0; i < 15; i++) {
     
     this.customerPerHour.push(getRandomIntInclusive(this.min, this.max))
   }
 }//end function gnerate customar per hour
-Pranche.prototype.gneratePurchasedCookiesPh = function () {
+Branche.prototype.gneratePurchasedCookiesPh = function () {
   let rand = 0
   for (let i = 0; i < this.customerPerHour.length; i++) {
     
@@ -37,23 +37,23 @@ function getRandomIntInclusive(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
 }
 getRandomIntInclusive();
-let seattle = new Pranche('Seattle', 23, 65, 6.3);
+let seattle = new Branche('Seattle', 23, 65, 6.3);
 seattle.gnerateCustomerperhour();
 seattle.gneratePurchasedCookiesPh();
 //console.log(totalPranch+'seattle');
-let tokyo = new Pranche('Tokyo', 3, 24, 1.2);
+let tokyo = new Branche('Tokyo', 3, 24, 1.2);
 tokyo.gnerateCustomerperhour();
 tokyo.gneratePurchasedCookiesPh();
 //console.log(totalPranch +'seattle And Takyo');
-let dubai = new Pranche('Dubai', 11, 38, 3.7);
+let dubai = new Branche('Dubai', 11, 38, 3.7);
 dubai.gnerateCustomerperhour();
 dubai.gneratePurchasedCookiesPh();
 //console.log(totalPranch +'seattle And Takyo');
-let paris = new Pranche('paris', 20, 38, 2.3)
+let paris = new Branche('paris', 20, 38, 2.3)
 paris.gnerateCustomerperhour();
 paris.gneratePurchasedCookiesPh();
 //console.log(totalPranch +'seattle And Takyo');
-let lima = new Pranche('Lima', 2, 16, 4.6)
+let lima = new Branche('Lima', 2, 16, 4.6)
 lima.gnerateCustomerperhour();
 lima.gneratePurchasedCookiesPh();
 //console.log(totalPranch +'seattle And Takyo');
@@ -76,13 +76,12 @@ function theader() {
   tr1.appendChild(th1);
   th1.textContent = '';
   for (let i = 0; i < hourSeattle.length; i++) {
-    console.log('3333333333333333')
+    
     th1 = document.createElement('th');
     tr1.appendChild(th1);
     th1.textContent = hourSeattle[i];
   }//end for loop
   th1 = document.createElement('th');
-  tr1.appendChild(th1);
   th1.textContent = 'Total';
 }
 //end function
@@ -99,9 +98,8 @@ function tfootFn() {
     td1.textContent = totalPranch[i];
   }//end for loop
 }
-Pranche.prototype.rendar = function () {
-  // theader();
-  // for (let i = 1; i <= 5; i++) {
+Branche.prototype.rendar = function () {
+  
     tr1 = document.createElement('tr');
     tbody.appendChild(tr1);
     td1 = document.createElement('td');
@@ -127,5 +125,5 @@ seattle.rendar();
 tokyo.rendar();
 paris.rendar();
 dubai.rendar();
-lima.rendar();6
+lima.rendar();
 tfootFn();
