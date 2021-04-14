@@ -1,6 +1,6 @@
 'use strict'
-let hourSeattle = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
-let totalPranch = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0];//array to store total of all purchpranches
+let hourSeattle = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
+let totalPranch = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0];//array to store total of all purchpranches
 function Branche(location, min, max, average) {
   this.location = location;
   this.min = min;
@@ -11,8 +11,15 @@ function Branche(location, min, max, average) {
     this.total = 0;
   //console.log(this);
 }// End constructor
+//function deleterow() {
+ //let rowCount = table.rows.table1;
+ //  let row = table.rows[rowCount - 1 ];
+
+ //table.deleteRow(row);
+
+//}
 Branche.prototype.gnerateCustomerperhour = function () {
-  for (let i = 0; i < 15; i++) {
+  for (let i = 0; i < 14; i++) {
     
     this.customerPerHour.push(getRandomIntInclusive(this.min, this.max))
   }
@@ -75,24 +82,24 @@ function theader() {
   th1 = document.createElement('th');
   tr1.appendChild(th1);
   th1.textContent = '';
-  for (let i = 0; i < hourSeattle.length; i++) {
-    
-    th1 = document.createElement('th');
+  for (let i = 0; i <hourSeattle.length; i++) {
+  th1 = document.createElement('th');
     tr1.appendChild(th1);
     th1.textContent = hourSeattle[i];
   }//end for loop
-  th1 = document.createElement('th');
-  th1.textContent = 'Total';
+ let th2 = document.createElement('th');
+  tr1.appendChild(th2);
+  th2.textContent ='Total';
 }
 //end function
 function tfootFn() {
   tr1 = document.createElement('tr')
   tfoot.appendChild(tr1);
   td1 = document.createElement('td');
-  tr1.appendChild(th1);
+  tr1.appendChild(td1);
   td1.textContent = 'Total';
   for (let i = 0; i < hourSeattle.length; i++) {
-    console.log('444444444444444444')
+  
     td1 = document.createElement('td');
     tr1.appendChild(td1);
     td1.textContent = totalPranch[i];
@@ -107,7 +114,7 @@ Branche.prototype.rendar = function () {
     td1.textContent = this.location;
     for(let j=0;j<hourSeattle.length;j++)
     {
-      console.log(this.purchasedCookiesPerHour,'***********************')
+      
       td1=document.createElement('td');
       tr1.appendChild(td1);
       td1.textContent=this.purchasedCookiesPerHour[j];
@@ -127,3 +134,28 @@ paris.rendar();
 dubai.rendar();
 lima.rendar();
 tfootFn();
+const form=document.getElementById('salmonbranch');
+form.addEventListener('submit',addrow);
+function addrow(event) {
+ event.preventDefault();
+  console.log(event);
+  let locationf=event.target.location.value;
+  let minf=event.target.min.value;
+  minf=parseInt(minf);
+  let maxf=event.target.max.value;
+  maxf=parseInt(maxf);
+let avgf=event .target.avg.value;
+avgf=parseInt(avgf);
+  
+let lab9=new Branche(locationf,minf,maxf,avgf);
+ 
+  lab9.gnerateCustomerperhour();
+  lab9.gneratePurchasedCookiesPh();
+  lab9.rendar();
+  
+    let rowCount = table1.rows.length;
+
+    table1.deleteRow(rowCount -1);
+tfootFn();
+
+}
