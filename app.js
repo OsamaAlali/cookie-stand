@@ -1,6 +1,7 @@
 'use strict'
 let hourSeattle = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 let totalPranch = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0];//array to store total of all purchpranches
+let sum=0; //its the last cell in last row
 function Branche(location, min, max, average) {
   this.location = location;
   this.min = min;
@@ -11,13 +12,7 @@ function Branche(location, min, max, average) {
     this.total = 0;
   //console.log(this);
 }// End constructor
-//function deleterow() {
- //let rowCount = table.rows.table1;
- //  let row = table.rows[rowCount - 1 ];
 
- //table.deleteRow(row);
-
-//}
 Branche.prototype.gnerateCustomerperhour = function () {
   for (let i = 0; i < 14; i++) {
     
@@ -33,10 +28,9 @@ Branche.prototype.gneratePurchasedCookiesPh = function () {
     this.purchasedCookiesPerHour.push(rand);
     this.total += rand;
     totalPranch[i] = totalPranch[i] + rand;
-    //console.log(this.total,'forallpranch'+totalPranch);
+    sum +=totalPranch[i];
   }//end for loop
-  // console.log(rand+'Rand');
-  // console.log(totalPranch+'afterLOOOOOP');
+  
 }//end function gneratePurchasedCookiesPh
 function getRandomIntInclusive(min, max) {
   min = Math.ceil(min);
@@ -104,6 +98,9 @@ function tfootFn() {
     tr1.appendChild(td1);
     td1.textContent = totalPranch[i];
   }//end for loop
+  td1 = document.createElement('td');
+  tr1.appendChild(td1);
+  td1.textContent = sum;
 }
 Branche.prototype.rendar = function () {
   

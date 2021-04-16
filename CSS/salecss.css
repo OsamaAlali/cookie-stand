@@ -1,0 +1,101 @@
+body{
+background-color: rgb(211, 232, 246);
+font: 1em sans-serif;
+
+font-style: italic;
+
+}
+#salmonbranch{
+    width: 40%;
+    
+}
+table{
+margin: 7%;
+
+}
+th,td{
+    padding: 7px 10px 10px 10px;
+text-align:center;
+
+}
+tr:hover{
+background-color: green;
+}
+
+
+th{
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+font-size: 90%;
+border-bottom: 5px solid #eba3a3;
+border-style: double;
+
+}
+table tr th:first-child{
+    border-style: none;
+    
+
+}
+
+table tr td:first-child{
+    border-bottom:2px solid sienna;
+    border-right:2px solid sienna;
+}
+td{
+    border-bottom: 1px solid gray;
+    border-right:1px solid gray ;
+    border-bottom-style: dashed;
+}
+fieldset{
+    width: 250px;
+    height: 150px;
+    padding: 7%;
+    border: 2px solid rgb(231, 162, 130);
+border-radius: 50px;
+text-align: left;
+margin: 5%;
+margin-left: 400px;
+text-align: right;
+}
+legend{
+    background-color: #efefef;
+    border: 3px solid snow;
+    border-radius: 25px;
+    text-transform: uppercase;
+    padding: 10px 20px;
+}
+input[type='text']{
+    border-radius: 15px;
+    background-color: rgb(240, 228, 228);
+       
+}
+input[type='submit']{
+    width: 33%;
+    height: 45px;
+    border-radius: 25px;
+   border-color:maroon;
+   background-color: rgb(224, 214, 224);
+   text-transform: uppercase;
+}
+input[type='submit']:hover
+{
+    background-color: rgb(26, 216, 137);
+}
+
+img{
+    padding: 1%;
+    display: block;
+    margin: auto;
+}
+h4{
+    
+    font: 2em sans-serif;
+    display: inline-flexbox;
+text-align:center;
+font-style: italic;
+
+}
+a{
+    text-decoration: none;
+    color: rgb(139, 120, 10);
+}
